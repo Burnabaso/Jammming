@@ -10,7 +10,17 @@ export default {
       'main-back': '#979FEF',
       'action': '#FF5F96',
       'second-back':'#FE8EB7',
-      'action2':'#6B77E8'
+      'action2':'#6B77E8',
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': '#ffffff',
+      'purple': '#3f3cbb',
+      'midnight': '#121063',
+      'metal': '#565584',
+      'tahiti': '#3ab7bf',
+      'silver': '#ecebff',
+      'bubble-gum': '#ff77e9',
+      'bermuda': '#78dcca'
     }
 
   },

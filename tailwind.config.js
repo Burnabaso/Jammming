@@ -9,7 +9,8 @@ export default {
     colors:{
       'main-back': '#979FEF',
       'action': '#FF5F96',
-      'second-back':'#FE8EB7'
+      'second-back':'#FE8EB7',
+      'action2':'#6B77E8'
     }
 
   },

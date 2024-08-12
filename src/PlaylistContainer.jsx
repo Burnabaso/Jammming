@@ -10,7 +10,7 @@ export default function PlaylistContainer(){
     return(
         <>
         <h2 className="text-5xl text-action font-semibold text-center my-4">Playlist</h2>
-        <div id="trackContainer" className=" rounded-lg bg-main-back dark:bg-main-back-dark mx-2 pl-2 flex gap-4 my-3 shadow-md">
+        <div id="trackContainer" className=" rounded-lg max-w-[700px] sm:w-5/6 sm:mx-auto bg-main-back dark:bg-main-back-dark mx-2 pl-2 flex gap-4 my-3 shadow-md">
             <div className="w-1/4 m-2">
                 <img className="" src="./public/jammmingFavicon.ico"/>
             </div>

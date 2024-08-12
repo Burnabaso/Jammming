@@ -9,19 +9,17 @@ export default {
     extend: {},
     colors:{
       'main-back': '#979FEF',
+      'main-back-dark':'#5a5e8c',
       'action': '#FF5F96',
+      'action-dark':'#80304c',
       'second-back':'#FE8EB7',
+      'second-back-dark':'#c26d8b',
       'action2':'#6B77E8',
+      'action2-dark':'#454d96',
       transparent: 'transparent',
       current: 'currentColor',
       'white': '#ffffff',
-      'purple': '#3f3cbb',
-      'midnight': '#121063',
-      'metal': '#565584',
-      'tahiti': '#3ab7bf',
-      'silver': '#ecebff',
-      'bubble-gum': '#ff77e9',
-      'bermuda': '#78dcca'
+      'white-dark':'#c2bebf'
     }
 
   },

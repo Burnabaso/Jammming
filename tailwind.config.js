@@ -20,6 +20,9 @@ export default {
       current: 'currentColor',
       'white': '#ffffff',
       'white-dark':'#c2bebf'
+    },
+    screens:{
+      'xs':{'max':'636px'}
     }
 
   },

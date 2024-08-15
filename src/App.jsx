@@ -12,7 +12,7 @@ function App() {
   const [theme, setTheme] = useState("light");
   const [token, setToken] = useState("");
   const [searchKey, setSearchKey] = useState("");
-  const [artists,setArtists] = useState([])
+  const [tracks,setTracks] = useState([])
   // save authorization token
   useEffect(() => {
     const hash = window.location.hash;
@@ -29,6 +29,7 @@ function App() {
     }
     setToken(token);
   }, []);
+
   // Set mode toggle functionality
   useEffect(() => {
     if (theme === "dark") {
@@ -44,6 +45,7 @@ function App() {
     setToken("");
     window.localStorage.removeItem("token");
   };
+  
   // Set search functionality
   const handleInputChange = (Event) => {
     setSearchKey(Event.target.value);
@@ -56,10 +58,10 @@ function App() {
       },
       params: {
         q: searchKey,
-        type: "artist",
+        type: "track",
       },
     });
-    setArtists(data.artists.items)
+    setTracks(data.tracks.items);
   };
   return (
     <>
@@ -78,7 +80,7 @@ function App() {
         handleInputChange={handleInputChange}
         handleSearch={handleSearch}
         searchKey = {searchKey}
-        artistsData = {artists}
+        tracksData = {tracks}
       />
     </>
   );

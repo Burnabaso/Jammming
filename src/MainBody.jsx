@@ -1,6 +1,7 @@
 import SearchForm from "./SearchForm.jsx";
 import Results from "./Results.jsx";
 import PlaylistContainer from "./PlaylistContainer.jsx";
+
 export default function MainBody(props){
     return(
         <div
@@ -10,7 +11,7 @@ export default function MainBody(props){
         {props.token ? (
           <>
             <div className="w-3/4 sm:w-5/6 md:w-4/6 lg:w-3/6 max-w-[500px] mx-auto mt-14 lg:self-center">
-              <SearchForm />
+              <SearchForm handleInputChange={props.handleInputChange} handleSearch={props.handleSearch} searchKey={props.searchKey} />
             </div>
             <div className="w-full mx-auto sm:w-5/6 md:w-4/6 lg:w-3/6 max-w-[700px] mt-14 shadow-lg bg-white pb-2">
               <Results />

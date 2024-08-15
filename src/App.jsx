@@ -3,6 +3,7 @@ import MainBody from "./MainBody.jsx";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+
 function App() {
   const CLIENT_ID = "f6c5499764e5495c832ffbfbe86124b3";
   const REDIRECT_URI = "http://localhost:4000";
@@ -10,6 +11,9 @@ function App() {
   const RESPONSE_TYPE = "token";
   const [theme, setTheme] = useState("light");
   const [token, setToken] = useState("");
+  const [searchKey, setSearchKey] = useState("");
+  const [artists,setArtists] = useState([])
+  // save authorization token
   useEffect(() => {
     const hash = window.location.hash;
     let token = window.localStorage.getItem("token");
@@ -22,9 +26,10 @@ function App() {
       // console.log(token); Just to test token is stored
       window.location.hash = "";
       window.localStorage.setItem("token", token);
-      setToken(token);
     }
+    setToken(token);
   }, []);
+  // Set mode toggle functionality
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -39,7 +44,23 @@ function App() {
     setToken("");
     window.localStorage.removeItem("token");
   };
-
+  // Set search functionality
+  const handleInputChange = (Event) => {
+    setSearchKey(Event.target.value);
+  };
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    const { data } = await axios.get("https://api.spotify.com/v1/search", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      params: {
+        q: searchKey,
+        type: "artist",
+      },
+    });
+    setArtists(data.artists.items)
+  };
   return (
     <>
       <NavBar
@@ -50,9 +71,15 @@ function App() {
         RESPONSE_TYPE={RESPONSE_TYPE}
         handleThemeSwitch={handleThemeSwitch}
         handleLogout={handleLogout}
-        theme = {theme}
+        theme={theme}
       />
-      <MainBody token={token}/>
+      <MainBody
+        token={token}
+        handleInputChange={handleInputChange}
+        handleSearch={handleSearch}
+        searchKey = {searchKey}
+        artistsData = {artists}
+      />
     </>
   );
 }

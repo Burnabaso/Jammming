@@ -14,7 +14,8 @@ export default function MainBody(props){
               <SearchForm handleInputChange={props.handleInputChange} handleSearch={props.handleSearch} searchKey={props.searchKey} />
             </div>
             <div className="w-full mx-auto sm:w-5/6 md:w-4/6 lg:w-3/6 max-w-[700px] mt-14 shadow-lg bg-white pb-2">
-              <Results />
+              <h2 className="text-5xl text-action font-semibold text-center my-4">Results</h2>
+              <Results artistsData = {props.artistsData}/>
             </div>
             <div className="w-full sm:w-5/6 md:w-4/6 lg:w-3/6 max-w-[800px] mx-auto mt-14 shadow-lg bg-white ">
               <PlaylistContainer />
